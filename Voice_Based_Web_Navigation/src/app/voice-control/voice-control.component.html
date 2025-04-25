@@ -1,0 +1,61 @@
+<div class="voice-control-container">
+    <!-- Header Section -->
+    <header>
+      <h1>Voice-Controlled Web Browser</h1>
+      <p>Navigate the web with just your voice!</p>
+    </header>
+  
+    <!-- Buttons Section -->
+    <section class="actions">
+      <button mat-raised-button color="primary" (click)="startRecognition()">Start Recognition</button>
+      <button mat-raised-button color="warn" (click)="stopRecognition()" *ngIf="isListening">Stop Recognition</button>
+      <button mat-raised-button color="accent" (click)="showSnackbar('Hint: Try saying Scroll down!')">
+        Show Hint
+      </button>
+    </section>
+   <!-- Popup for Feedback -->
+   <div *ngIf="showPopup" class="popup">
+    <h3>{{ popupTitle }}</h3>
+    <p>{{ popupMessage }}</p>
+    <button mat-button (click)="closePopup()">Close</button>
+  </div>
+    <!-- Feedback Section -->
+    <section class="feedback">
+      <h3>Live Feedback</h3>
+      <p>Status: <strong>{{ status }}</strong></p>
+      <p *ngIf="recognizedCommand">Last Command: <strong>"{{ recognizedCommand }}"</strong></p>
+    </section>
+  
+    <!-- Instructions Section -->
+    <section class="instructions">
+      <h3>How to Use</h3>
+      <ul>
+        <li>Click the <strong>Start Recognition</strong> button.</li>
+        <li>Speak one of the commands listed below.</li>
+        <li>Receive immediate feedback and see the action performed.</li>
+      </ul>
+    </section>
+  
+    <!-- Command List Section -->
+    <section class="commands">
+      <h3>Available Commands</h3>
+      <ul>
+        <li><strong>Scroll up</strong> - Scrolls the page upward.</li>
+        <li><strong>Scroll down</strong> - Scrolls the page downward.</li>
+        <li><strong>Go back</strong> - Navigates to the previous page.</li>
+        <li><strong>Reload page</strong> - Refreshes the page.</li>
+        <li><strong>Search for [term]</strong> - Opens a Google search for the term.</li>
+        <li><strong>Open [website]</strong> - Opens a specified website (e.g., "Open YouTube").</li>
+        <li><strong>Open New Tab</strong> - Opens a new browser tab.</li>
+        <li><strong>Close Tab</strong> - Closes the current tab.</li>
+        <li><strong>Zoom In</strong> - Zooms in on the page.</li>
+        <li><strong>Zoom Out</strong> - Zooms out on the page.</li>
+        <li><strong>Go to Homepage</strong> - Takes you to the homepage.</li>
+        <li><strong>Scroll to Top</strong> - Scrolls the page back to the top.</li>
+        <li><strong>Maximize Window</strong> - Maximizes the browser window.</li>
+        <li><strong>Show Time</strong> - Displays the current time.</li>
+      </ul>
+    </section>
+  
+  </div>
+  
